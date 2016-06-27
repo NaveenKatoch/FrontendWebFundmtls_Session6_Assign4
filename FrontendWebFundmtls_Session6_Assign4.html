@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Check Brackets</title>
+	<meta charset="utf-8">
+
+		<style type="text/css">
+	
+		.row{
+			display: inline-block;
+		}
+
+		.lblMain {
+
+			margin-right: 7px;
+		}
+
+	</style>
+</head>
+<body>
+	<br>
+	<h3>Check Brackets</h3>
+
+
+
+	<label class="lblMain"><b>1.</b>  ('( ( a + b ) / 5 abd )')</label>
+	<input type="button" name="btnCheck" value="Check" onclick="checkBrackets(strBrackets1,1)">
+	<br>
+	<div class="row">
+		<label class="label" id="lblbrack1"></label>
+	</div>
+	<br><br><br>
+
+	<label class="lblMain"><b>2.</b> (') ( a + b ) )')</label>
+	<input type="button" name="btnCheck" value="Check" onclick="checkBrackets(strBrackets2,2)">
+	<br>
+	<div class="row">
+		<label class="label" id="lblbrack2"></label>
+	</div>
+	<br><br><br>
+
+	<label class="lblMain"><b>3.</b> ('( b * ( c + d *2 / ( 2 + ( 12 abc / ( a + 3 ) ) ) )')</label>
+	<input type="button" name="btnCheck" value="Check" onclick="checkBrackets(strBrackets3,3)">
+	<br>
+	<div class="row">
+		<label class="label" id="lblbrack3"></label>
+	</div>
+	<br><br><br>
+
+
+	<script type="text/javascript">
+			var strBrackets1 = "('( ( a + b ) / 5 abd )')";
+			var strBrackets2= "(') ( a + b ) )')";
+			var strBrackets3 = "('( b * ( c + d *2 / ( 2 + ( 12 abc / ( a + 3 ) ) ) )')";
+
+		function checkBrackets(strBrackets, inputNum){
+
+			var	strList = strBrackets;
+			var count=0;
+
+			for (i=0; i<=strList.length; i++){
+				
+				var currChar = strList.charAt(i);
+
+				if (strList.charAt(i)=='(') {
+					count++;
+				} else if (strList.charAt(i)==')'){
+					count--;
+				} 
+				
+			}
+	
+			// <b></b>
+
+			lblbrackObj1 = document.getElementById('lblbrack1');
+			lblbrackObj2 = document.getElementById('lblbrack2');
+			lblbrackObj3 = document.getElementById('lblbrack3')
+
+			if (count == 0){
+				if (inputNum==1) {
+						lblbrackObj1.innerHTML = "<b>" + "  Correct!!" + "</b>";
+					}else if (inputNum==2) {
+						lblbrackObj2.innerHTML = "<b>" + "  Correct!!" + "</b>";
+					}else if (inputNum==3) {
+						lblbrackObj3.innerHTML = "<b>" + "  Correct!!" + "</b>";
+					} 
+
+				}else if ((count != 0)){
+					if (inputNum==1) {
+						lblbrackObj1.innerHTML = "<b>" + "  Incorrect!!" + "</b>";
+					}else if (inputNum==2) {
+						lblbrackObj2.innerHTML = "<b>" + "  Incorrect!!" + "</b>";
+					}else if (inputNum==3) {
+						lblbrackObj3.innerHTML = "<b>" + "  Incorrect!!" + "</b>";
+					} 
+				}
+			}
+		
+
+
+	</script>
+
+</body>
+</html>
